@@ -1,0 +1,185 @@
+//
+//  Reservation.swift
+//  Assignment1
+//
+//  Created by Fernanda Battig on 2022-01-28.
+//
+
+import Foundation
+
+class Reservation{
+   
+        
+    var reserv_ID : String?
+    var name : String?
+    var reserv_date : String?
+    var seat_num: String?
+    var reserv_tarr: Int = 6
+   
+    
+    init(){
+    self.reserv_ID = ""
+    self.name = ""
+    self.reserv_date = ""
+    self.seat_num = ""
+    
+    }
+    
+    enum reserv_status : String{
+        case w = "Wait Listed "
+        case r = "Reserved"
+        case con = "Confirmed"
+        case can = "Cancelled"
+    }
+    
+    enum meal_type : String{
+        case v = "Veg"
+        case nv = "Non-Veg"
+    }
+    
+    func addReservaton(){
+        print("Please fill in the following informatiion for your reservation.")
+        print("Please note you will have to fill in your Passenger Information")
+        print("before we can book a reservation for you.")
+        print("Would you like to go back?")
+        let back = readLine()!
+        if back.starts(with: "y"){
+            user_class.dir_pass()
+        }else{
+        print("Reservation ID: ")
+        reserv_ID = readLine()!
+        print("Passenger Name: ")
+        name = readLine()!
+        print("Reservation Date: ")
+        reserv_date = readLine()!
+        print("Seat Number: ")
+        seat_num = readLine()!
+        print("Reservation Tariff: ")
+        print("$6.00")
+        sitting()
+        }
+    }
+        
+    func sitting(){
+        print("We have Veggie options and Non-Veggie options. Please enter the amouny you would like.")
+        print("Veggie meal ($7.00): ")
+        var vmeal:Int?
+        vmeal = Int(readLine()!)
+        print("Non-Veggie meal ($10.00): ")
+        var nvmeal:Int?
+        nvmeal = Int(readLine()!)
+        let vmeal_price : Int = 7
+        let nvmeal_price : Int = 10
+
+        
+        if vmeal == nil{
+            print("Invalid amount")
+            
+        }else if nvmeal == nil{
+            print("Invalid amount")
+            
+        }else{
+            let vmeal_total = (vmeal! * vmeal_price)
+            let nvmeal_total  = (nvmeal! * nvmeal_price)
+            let total = vmeal_total + nvmeal_total + reserv_tarr
+            print("Total (Including reservation tariff) : $ \(total)")
+            print("Please comfirm your reservation - enter [confirm]")
+            res_status()
+    
+            
+            
+        }
+        
+        
+        
+            
+        }
+        
+            
+        
+        
+        
+    
+    func editReservation(){
+        print("Here is your following information.")
+        print("What would you like to edit?")
+        print("[1] Reservation ID: \(self.reserv_ID ?? "Not found")")
+        print("[2] Name: \(self.name ?? "Not found"))")
+        print("[3] Reservation Date: \(self.reserv_date ?? "Not found")")
+        print("[4] Seat Number: \(self.seat_num ?? "Not found")")
+        var edit : String
+        edit = readLine()!
+        if edit == "1"{
+            print("Reservation ID: ")
+            reserv_ID = readLine()!
+        }else if edit == "2"{
+            print("Name: ")
+            name = readLine()!
+        }else if edit == "3"{
+            print("Reservation Date: ")
+            reserv_date = readLine()!
+        }else if edit == "4"{
+            print("Seat Number: ")
+            seat_num = readLine()!
+        }else{
+            print("Please enter an option from the following:")
+            editReservation()
+        }
+    }
+    
+    
+    func cancelReservation(){
+        print("To cancel a reservation please enter your reservation ID.")
+        let input_id = readLine()!
+        if input_id == reserv_ID{
+            print("Your reservation with ID Number: \(input_id) has been canceled")
+            print("STATUS CANCELLED")
+            user_class.dir_pass()
+        
+        }else{
+            print("There is no reservations made matching ID.")
+            user_class.dir_pass()
+        }
+    }
+    
+    
+    func displayReservation(){
+        if self.reserv_ID == ""{
+            print("You have no reservations to display.")
+            user_class.dir_pass()
+        }else{
+            print("[1] Reservation ID: \(self.reserv_ID ?? "Not found")")
+            print("[2] Name: \(self.name ?? "Not found")")
+            print("[3] Reservation Date: \(self.reserv_date ?? "Not found")")
+            print("[4] Seat Number: \(self.seat_num ?? "Not found")")
+            user_class.dir_pass()
+    }
+        
+        
+    }
+    
+    func res_status(){
+        let confirm : String = readLine()!
+        if confirm == "confirm"{
+            print("Reservation Status - CONFIRMED ")
+            user_class.dir_pass()
+           
+            
+            
+        }else if confirm != "confirm"{
+            print("Reservation Status - WAITLISTED")
+            user_class.dir_pass()
+           
+        }
+            
+        
+    }
+    
+
+    
+    }
+
+     
+    
+var pass_class = Passenger()
+var user_class = User()
