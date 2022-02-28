@@ -1,0 +1,234 @@
+//
+//  Flight.swift
+//  Assignment1
+//
+//  Created by Fernanda Battig on 2022-01-28.
+//
+
+import Foundation
+
+class Flight{
+    
+    var dates : [String] = ["Feb 2 2022 @ 3:00AM", "Feb 2 2022 @ 3:00AM", "Feb 9 2022 @ 5:15PM"]
+    var dep_city : [String] = ["Toronto","New York City","Los Angeles"]
+    var arr_city : [String] = ["Mexico City","Toronto","Chicago"]
+    var distances : [String] = ["4000km", "6000km", "10,000km" ]
+    var ids : [String] = ["1111","2222","3333"]
+    var flightID: String
+ 
+    
+    
+    init(){
+        self.flightID = ""
+        
+    }
+
+    
+    func addFlight(){
+        print("**********************")
+        print("ID NUMBERS: \(ids)")
+        print("DISTANCE IN KM \(distances)")
+        print("Departure Cities:")
+        print(dep_city)
+        print("Arival Cities:")
+        print(arr_city)
+        print("Scheduled Date:")
+        print(dates)
+        print("**********************")
+       
+        
+        
+    print("Flight ID of flight you want to book: ")
+    flightID = readLine()!
+        while true{
+            
+            if flightID == ids[0]{
+                print("Departure City: \(dep_city[0])")
+                print("Arrival City: \(arr_city[0])")
+                print("Distance: \(distances[0])")
+                print("Scheduled Date: \(dates[0])")
+                print("FLIGHT BOOKED")
+                user_class.dir_op()
+                break
+                
+            }else if flightID == ids[1]{
+                print("Departure City: \(dep_city[1])")
+                print("Arrival City: \(arr_city[1])")
+                print("Distance: \(distances[1])")
+                print("Scheduled Date: \(dates[1])")
+                print("FLIGHT BOOKED")
+                user_class.dir_op()
+                break
+                
+            }else if flightID == ids[2]{
+                print("Departure City: \(dep_city[2])")
+                print("Arrival City: \(arr_city[2])")
+                print("Distance: \(distances[2])")
+                print("Scheduled Date: \(dates[2])")
+                print("FLIGHT BOOKED")
+                user_class.dir_op()
+                break
+            
+            }else{
+                addFlight()
+            }
+            
+            }
+        
+   
+}
+    func editFlight(){
+        while true{
+            print("Here is your following information.")
+            if flightID == ids[0]{
+                print("Departure City: \(dep_city[0])")
+                print("Arrival City: \(arr_city[0])")
+                print("Distance: \(distances[0])")
+                print("Scheduled Date: \(dates[0])")
+                print("Would you like to change to a different flight?")
+                let edit = readLine()!
+                if edit.starts(with: "y"){
+                    addFlight()
+                    break
+                }else{
+                    user_class.dir_op()
+                    break
+                }
+            }else if flightID == ids[1]{
+                print("Departure City: \(dep_city[1])")
+                print("Arrival City: \(arr_city[1])")
+                print("Distance: \(distances[1])")
+                print("Scheduled Date: \(dates[1])")
+                print("Would you like to change to a different flight?")
+                let edit = readLine()!
+                if edit.starts(with: "y"){
+                    addFlight()
+                    break
+                }else{
+                    user_class.dir_op()
+                    break
+                }
+         
+                
+            }else if flightID == ids[2]{
+                print("Departure City: \(dep_city[2])")
+                print("Arrival City: \(arr_city[2])")
+                print("Distance: \(distances[2])")
+                print("Scheduled Date: \(dates[2])")
+                print("Would you like to change to a different flight?")
+                let edit = readLine()!
+                if edit.starts(with: "y"){
+                    addFlight()
+                    break
+                }else{
+                    user_class.dir_op()
+                    break
+                }
+              
+            
+            }else{
+                addFlight()
+            }
+        }
+            
+        }
+       
+        
+    
+    func cancelFlight(){
+        print("To cancel a flight please provide Flight ID.")
+        let input_id = readLine()!
+        if input_id == ids[0]{
+            print("Your flight with ID Number: \(ids[0]) has been cancelled")
+            print("STATUS CANCELLED")
+            flightID = ""
+            user_class.dir_op()
+        
+        
+        }else if input_id == ids[1]{
+            print("Your flight with ID Number: \(ids[1]) has been cancelled")
+            print("STATUS CANCELLED")
+            flightID = ""
+            user_class.dir_op()
+         
+        }else if input_id == ids[2]{
+            print("Your flight with ID Number: \(ids[2]) has been cancelled")
+            print("STATUS CANCELLED")
+            flightID = ""
+            user_class.dir_op()
+        }else{
+            print("There is no flight matching ID.")
+            user_class.dir_op()
+        }
+            
+        }
+    
+    
+    func displayFlights(){
+        if flightID == ids[0]{
+            print("Departure City: \(dep_city[0])")
+            print("Arrival City: \(arr_city[0])")
+            print("Distance: \(distances[0])")
+            print("Scheduled Date: \(dates[0])")
+            print("FLIGHT BOOKED")
+            user_class.dir_op()
+            
+        }else if flightID == ids[1]{
+            print("Departure City: \(dep_city[1])")
+            print("Arrival City: \(arr_city[1])")
+            print("Distance: \(distances[1])")
+            print("Scheduled Date: \(dates[1])")
+            print("FLIGHT BOOKED")
+            user_class.dir_op()
+       
+            
+        }else if flightID == ids[2]{
+            print("Departure City: \(dep_city[2])")
+            print("Arrival City: \(arr_city[2])")
+            print("Distance: \(distances[2])")
+            print("Scheduled Date: \(dates[2])")
+            print("FLIGHT BOOKED")
+            user_class.dir_op()
+            
+       
+        
+    
+        }else{
+            print("No flights found.")
+            user_class.dir_op()
+            
+        }
+       
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    
+}
