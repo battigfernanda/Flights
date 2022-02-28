@@ -1,0 +1,134 @@
+//
+//  main.swift
+//  Assignment1
+//
+//  Created by Fernanda Battig on 2022-01-28.
+//
+
+import Foundation
+
+
+print("**************************")
+print("        Login Menu         ")
+class User{
+    
+    private var passwordOp: String = "admin"
+    private var passwordPass: String = "test"
+    private var usernameOp : String = "admin"
+    private var usernamePass : String = "test"
+
+ 
+    func UserInfo(){
+        print("Are you a [1] Operator or [2] Passenger?")
+        let option = readLine()
+        while true{
+        if option == "1"{
+        print("Username: ")
+        let username_op = readLine()!
+        print("Password: ")
+        let password_op = readLine()!
+            
+                if username_op == usernameOp && password_op == passwordOp{
+                   dir_op()
+                    break
+                }else{
+                    print("Invalid credintails.")
+                    continue
+                    }
+                    
+        }else if option == "2"{
+                    print("Username: ")
+                    let username_pass = readLine()!
+                    print("Password: ")
+                    let password_pass = readLine()!
+                    if username_pass == usernamePass && password_pass == passwordPass{
+                        dir_pass()
+                        break
+                    }else{
+                        print("Invalid credintails.")
+                        continue
+                }
+        }else if option != "1" || option != "2"{
+            UserInfo()
+            break
+            
+        }
+        }
+        }
+            
+            func dir_pass (){
+                print("""
+                ------------PASSENGER INFO-------------
+                [1] - Add a Passenger
+                [2] - Edit a Passenger Information
+                """)
+                print("""
+                ------------RESERVATION MENU-------------
+                [3] - Make a Reservation
+                [4] - Edit a Reservation
+                [5] - Delete a Reservation
+                [6] - Display Reservation List
+                [7] - Exit
+                """)
+                let user_choice = readLine()!
+                while true{
+                    if user_choice == "1"{
+                        add_passenger.addPassenger()
+                        break
+                    }else if user_choice == "2"{
+                        add_passenger.editPassenger()
+                        break
+                    }else if user_choice == "3"{
+                        reserv.addReservaton()
+                        break
+                    }else if user_choice == "4"{
+                        reserv.editReservation()
+                        break
+                    }else if user_choice == "5"{
+                        reserv.cancelReservation()
+                        break
+                    }else if user_choice == "6"{
+                        reserv.displayReservation()
+                        break
+                    }else if user_choice == "7"{
+                        break
+                    
+                    }else{
+                        print("Choose from the following.")
+                        dir_pass()
+                    }
+                }
+            }
+                
+    func dir_op(){
+        print("""
+        ------------OPERATION MENU-------------
+        [1] - Add a Flight
+        [2] - Edit a Flight
+        [3] - Delete a Flight
+        [4] - Display Flight List
+        [5] - Exit
+        """)
+        let option = readLine()!
+        if option == "1"{
+            flight.addFlight()
+        }else if option == "2"{
+                flight.editFlight()
+        }else if option == "3"{
+            flight.cancelFlight()
+            }else if option == "4"{
+                flight.displayFlights()
+            }
+                
+        
+    }
+}
+
+    
+var reserv = Reservation()
+var flight = Flight()
+var add_passenger = Passenger()
+var intro = User()
+intro.UserInfo()
+
+
