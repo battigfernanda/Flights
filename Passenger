@@ -1,0 +1,118 @@
+//
+//  Passenger.swift
+//  Assignment1
+//
+//  Created by Fernanda Battig on 2022-01-28.
+//
+
+import Foundation
+
+
+
+class Passenger{
+  
+    var ID, name, passportNum, contactNum, homeAdd, email, gender: String?
+   
+    
+    init(){
+    self.ID = ""
+    self.name = ""
+    self.passportNum = ""
+    self.contactNum = ""
+    self.homeAdd = ""
+    self.email = ""
+    self.gender = ""
+
+
+        
+    }
+ 
+    
+     func addPassenger(){
+        print("Enter the following information")
+        print("Passenger ID: ")
+        ID = readLine()!
+        print("Name: ")
+        name = readLine()!
+        print("Passport Number: ")
+        passportNum = readLine()!
+        print("Contact Number: ")
+        contactNum = readLine()!
+        print("Home Address: ")
+        homeAdd = readLine()!
+        print("Email Address: ")
+        email = readLine()!
+        print("Gender: ")
+        gender = readLine()!
+        print("Is the above correct?")
+        var correct : String
+        correct = readLine()!
+        while true{
+        if correct.starts(with: "y"){
+            home.dir_pass()
+            break
+        }else{
+            addPassenger()
+            break
+        
+            
+        }
+        
+      
+        }
+         
+    }
+    
+    func editPassenger(){
+        print("Here is your following information.")
+        print("What would you like to edit?")
+        print("[1] Passenger ID: \(ID ?? "Not found")")
+        print("[2] Name: \(name ?? "Not found")")
+        print("[3] Passport Number: \(passportNum ?? "Not found")")
+        print("[4] Contact Number: \(contactNum ?? "Not found")")
+        print("[5] Home Address: \(homeAdd ?? "Not found")")
+        print("[6] Email Address: \(email ?? "Not found")")
+        print("[7] Gender: \(gender ?? "Not found")")
+        var edit : String
+        edit = readLine()!
+        if edit == "1"{
+            print("Passenger ID: ")
+            ID = readLine()!
+            home.dir_pass()
+        }else if edit == "2"{
+            print("Name: ")
+            name = readLine()!
+            home.dir_pass()
+        }else if edit == "3"{
+            print("Passport Number: ")
+            passportNum = readLine()!
+            home.dir_pass()
+        }else if edit == "4"{
+            print("Contact Number: ")
+            contactNum = readLine()!
+            home.dir_pass()
+        }else if edit == "5"{
+            print("Home Address: ")
+            homeAdd = readLine()!
+            home.dir_pass()
+        }else if edit == "6"{
+            print("Email Address: ")
+            email = readLine()!
+            home.dir_pass()
+        }else if edit == "7"{
+            print("Gender: ")
+            gender = readLine()!
+            home.dir_pass()
+        }else{
+            print("Invalid")
+            home.dir_pass()
+        }
+    }
+ 
+
+    
+}
+
+
+var home = User()
+var pass = Passenger()
